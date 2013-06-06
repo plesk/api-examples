@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'plesk_api_client'
 
 host = ENV['REMOTE_HOST']
