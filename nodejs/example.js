@@ -6,7 +6,7 @@ var host = process.env.REMOTE_HOST;
 var login = process.env.REMOTE_LOGIN;
 var password = process.env.REMOTE_PASSWORD;
 
-var client = new pleskApi.Client('hp-demo.sb.plesk.ru');
+var client = new pleskApi.Client(host);
 client.setCredentials(login, password);
 
 var request = 
