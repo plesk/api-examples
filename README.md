@@ -9,6 +9,8 @@ Here you can find useful helpers to execute API-RPC requests.
   * Ruby
   * Node.js
   * Python
+  * Bash
+  * C++
 
 ## How to Run
 
