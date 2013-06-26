@@ -8,6 +8,7 @@ class PleskApiClient {
     private String host;
     private String login;
     private String password;
+    private String secretKey;
 
     public PleskApiClient(String host) {
         this.host = host;
@@ -16,6 +17,10 @@ class PleskApiClient {
     public void setCredentials(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 
     public String request(String request) throws Exception {
@@ -27,8 +32,14 @@ class PleskApiClient {
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "text/xml");
         connection.setRequestProperty("HTTP_PRETTY_PRINT", "TRUE");
-        connection.setRequestProperty("HTTP_AUTH_LOGIN", this.login);
-        connection.setRequestProperty("HTTP_AUTH_PASSWD", this.password);
+
+        if (null != this.secretKey) {
+            connection.setRequestProperty("KEY", this.secretKey);
+        } else {
+            connection.setRequestProperty("HTTP_AUTH_LOGIN", this.login);
+            connection.setRequestProperty("HTTP_AUTH_PASSWD", this.password);
+        }
+
         connection.setDoOutput(true);
 
         DataOutputStream writer = new DataOutputStream(connection.getOutputStream());
