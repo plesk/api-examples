@@ -11,6 +11,7 @@ Here you can find useful helpers to execute API-RPC requests.
   * Python
   * Bash
   * C++
+  * Java
 
 ## How to Run
 
