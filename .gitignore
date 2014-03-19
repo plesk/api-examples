@@ -8,3 +8,5 @@ c-sharp/*.suo
 vb/bin
 vb/obj
 vb/*.suo
+objective-c/**/xcuserdata/
+objective-c/**/*.xccheckout
