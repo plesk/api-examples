@@ -12,6 +12,7 @@ Here you can find useful helpers to execute API-RPC requests.
   * Bash
   * C++
   * Java
+  * C#
 
 ## How to Run
 

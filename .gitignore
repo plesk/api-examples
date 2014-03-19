@@ -2,3 +2,6 @@ python/*.pyc
 cpp/*.o
 cpp/example
 java/*.class
+c-sharp/bin
+c-sharp/obj
+c-sharp/*.suo
