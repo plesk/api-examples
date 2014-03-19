@@ -5,3 +5,6 @@ java/*.class
 c-sharp/bin
 c-sharp/obj
 c-sharp/*.suo
+vb/bin
+vb/obj
+vb/*.suo
