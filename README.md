@@ -13,6 +13,7 @@ Here you can find useful helpers to execute API-RPC requests.
   * C++
   * Java
   * C#
+  * Visual Basic
 
 ## How to Run
 
