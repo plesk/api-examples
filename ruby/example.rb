@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'plesk_api_client'
+require './plesk_api_client'
 
 host = ENV['REMOTE_HOST']
 login = ENV['REMOTE_LOGIN']
@@ -18,5 +18,5 @@ request = <<eof
 eof
 
 response = client.request(request)
-puts response
+puts response.body
 
