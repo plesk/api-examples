@@ -10,7 +10,7 @@ client = PleskApiClient.new(host)
 client.set_credentials(login, password)
 
 request = <<eof
-<packet version="1.6.3.0">
+<packet>
   <server>
     <get_protos/>
   </server>

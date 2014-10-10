@@ -13,7 +13,7 @@ int main(void)
     client->setCredentials(login, password);
 
     string request = "\
-        <packet version='1.6.3.0'>\
+        <packet>\
             <server>\
                 <get_protos/>\
             </server>\

@@ -11,7 +11,7 @@ client = PleskApiClient(host)
 client.set_credentials(login, password)
 
 request = """
-<packet version="1.6.3.0">
+<packet>
   <server>
     <get_protos/>
   </server>

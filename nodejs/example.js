@@ -10,7 +10,7 @@ var client = new pleskApi.Client(host);
 client.setCredentials(login, password);
 
 var request = 
-  '<packet version="1.6.3.0">' +
+  '<packet>' +
     '<server>' +
       '<get_protos/>' +
     '</server>' +
