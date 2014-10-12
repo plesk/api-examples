@@ -3,9 +3,9 @@
 import os
 from plesk_api_client import PleskApiClient
 
-host = os.environ['REMOTE_HOST']
-login = os.environ['REMOTE_LOGIN']
-password = os.environ['REMOTE_PASSWORD']
+host = os.getenv('REMOTE_HOST')
+login = os.getenv('REMOTE_LOGIN', 'admin')
+password = os.getenv('REMOTE_PASSWORD')
 
 client = PleskApiClient(host)
 client.set_credentials(login, password)

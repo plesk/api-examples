@@ -3,7 +3,7 @@
 require './plesk_api_client'
 
 host = ENV['REMOTE_HOST']
-login = ENV['REMOTE_LOGIN']
+login = ENV['REMOTE_LOGIN'] || 'admin'
 password = ENV['REMOTE_PASSWORD']
 
 client = PleskApiClient.new(host)

@@ -5,6 +5,10 @@ class Example {
         String password = System.getenv("REMOTE_PASSWORD");
         String host = System.getenv("REMOTE_HOST");
 
+        if (null == login) {
+            login = "admin";
+        }
+
         PleskApiClient client = new PleskApiClient(host);
         client.setCredentials(login, password);
 

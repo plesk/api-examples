@@ -6,8 +6,16 @@ using namespace std;
 int main(void)
 {
     string host = getenv("REMOTE_HOST");
-    string login = getenv("REMOTE_LOGIN");
     string password = getenv("REMOTE_PASSWORD");
+    string login;
+
+    char *envLogin = getenv("REMOTE_LOGIN");
+
+    if (NULL == envLogin) {
+        login = "admin";
+    } else {
+        login = string(envLogin);
+    }
 
     PleskApiClient *client = new PleskApiClient(host);
     client->setCredentials(login, password);
