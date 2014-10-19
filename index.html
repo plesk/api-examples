@@ -1,0 +1,1063 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Plesk XML-RPC Examples</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/highlight.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Plesk XML-RPC Examples</h1>
+
+            <h2>Table of Contents</h2>
+
+            <ul>
+                                    <li><a href="#example-1">server &gt; get_protos</a></li>
+                                    <li><a href="#example-2">server &gt; get &gt; gen_info</a></li>
+                                    <li><a href="#example-3">server &gt; get &gt; prefs</a></li>
+                                    <li><a href="#example-4">server &gt; get &gt; admin</a></li>
+                                    <li><a href="#example-5">server &gt; get &gt; key</a></li>
+                                    <li><a href="#example-6">server &gt; get &gt; components</a></li>
+                                    <li><a href="#example-7">server &gt; get &gt; services_state</a></li>
+                                    <li><a href="#example-8">server &gt; get &gt; session_setup</a></li>
+                                    <li><a href="#example-9">server &gt; get &gt; shells</a></li>
+                                    <li><a href="#example-10">server &gt; get &gt; interfaces</a></li>
+                                    <li><a href="#example-11">server &gt; get &gt; stat</a></li>
+                            </ul>
+
+            <h2>Examples</h2>
+
+                            <a name="example-1"></a>
+                <h3>server &gt; get_protos</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get_protos/&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get_protos&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;protos&gt;
+          &lt;proto&gt;1.0.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.1.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.2.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.1.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.2.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.3.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.4.0&lt;/proto&gt;
+          &lt;proto&gt;1.3.5.0&lt;/proto&gt;
+          &lt;proto&gt;1.4.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.4.1.0&lt;/proto&gt;
+          &lt;proto&gt;1.4.2.0&lt;/proto&gt;
+          &lt;proto&gt;1.4.1.1&lt;/proto&gt;
+          &lt;proto&gt;1.4.1.2&lt;/proto&gt;
+          &lt;proto&gt;1.5.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.5.1.0&lt;/proto&gt;
+          &lt;proto&gt;1.5.2.0&lt;/proto&gt;
+          &lt;proto&gt;1.5.2.1&lt;/proto&gt;
+          &lt;proto&gt;1.6.0.0&lt;/proto&gt;
+          &lt;proto&gt;1.6.0.1&lt;/proto&gt;
+          &lt;proto&gt;1.6.0.2&lt;/proto&gt;
+          &lt;proto&gt;1.6.2.0&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.0&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.1&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.2&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.3&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.4&lt;/proto&gt;
+          &lt;proto&gt;1.6.3.5&lt;/proto&gt;
+          &lt;proto&gt;1.6.4.0&lt;/proto&gt;
+          &lt;proto&gt;1.6.5.0&lt;/proto&gt;
+          &lt;proto&gt;1.6.6.0&lt;/proto&gt;
+        &lt;/protos&gt;
+      &lt;/result&gt;
+    &lt;/get_protos&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-2"></a>
+                <h3>server &gt; get &gt; gen_info</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;gen_info/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;gen_info&gt;
+          &lt;server_name&gt;ppu12-0.demo.pp.plesk.ru&lt;/server_name&gt;
+          &lt;server_guid&gt;dfdaf0e7-c007-4930-8e53-4b6435169bf2&lt;/server_guid&gt;
+          &lt;vps-optimized-status&gt;
+            &lt;aspect&gt;
+              &lt;name&gt;mysql-innodb&lt;/name&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/aspect&gt;
+            &lt;aspect&gt;
+              &lt;name&gt;apache-modules-all&lt;/name&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/aspect&gt;
+            &lt;aspect&gt;
+              &lt;name&gt;apache-modules-except-php&lt;/name&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/aspect&gt;
+            &lt;aspect&gt;
+              &lt;name&gt;apache-modules-except-scripting&lt;/name&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/aspect&gt;
+          &lt;/vps-optimized-status&gt;
+          &lt;mode&gt;standard&lt;/mode&gt;
+        &lt;/gen_info&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-3"></a>
+                <h3>server &gt; get &gt; prefs</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;prefs/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;prefs&gt;
+          &lt;stat_ttl&gt;3&lt;/stat_ttl&gt;
+          &lt;traffic_accounting&gt;3&lt;/traffic_accounting&gt;
+          &lt;restart_apache_interval&gt;0&lt;/restart_apache_interval&gt;
+          &lt;apache_pipelog&gt;false&lt;/apache_pipelog&gt;
+          &lt;ftp_over_ssl&gt;enabled&lt;/ftp_over_ssl&gt;
+          &lt;max_connections&gt;40&lt;/max_connections&gt;
+          &lt;max_connections_per_ip&gt;4&lt;/max_connections_per_ip&gt;
+          &lt;outgoing_antispam&gt;false&lt;/outgoing_antispam&gt;
+          &lt;outgoing_messages_mbox_limit&gt;10&lt;/outgoing_messages_mbox_limit&gt;
+          &lt;outgoing_messages_domain_limit&gt;50&lt;/outgoing_messages_domain_limit&gt;
+          &lt;outgoing_messages_subscription_limit&gt;100&lt;/outgoing_messages_subscription_limit&gt;
+          &lt;enable_sendmail&gt;true&lt;/enable_sendmail&gt;
+          &lt;report_period&gt;P1W&lt;/report_period&gt;
+          &lt;notification_period&gt;PT1H&lt;/notification_period&gt;
+          &lt;outgoing_email_mode&gt;domain-ip&lt;/outgoing_email_mode&gt;
+          &lt;aps_force_updates&gt;false&lt;/aps_force_updates&gt;
+          &lt;aps_suggest_updates&gt;false&lt;/aps_suggest_updates&gt;
+          &lt;waf-rule-engine&gt;off&lt;/waf-rule-engine&gt;
+        &lt;/prefs&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-4"></a>
+                <h3>server &gt; get &gt; admin</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;admin/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;admin&gt;
+          &lt;admin_cname&gt;BeerHermistonandQuigley&lt;/admin_cname&gt;
+          &lt;admin_pname&gt;Moises Ritchie&lt;/admin_pname&gt;
+          &lt;admin_phone&gt;+74(0)9168599912&lt;/admin_phone&gt;
+          &lt;admin_fax/&gt;
+          &lt;admin_email&gt;autotester@plesk.ru&lt;/admin_email&gt;
+          &lt;admin_address&gt;52635 Stiedemann Avenue&lt;/admin_address&gt;
+          &lt;admin_city&gt;Franeckifurt&lt;/admin_city&gt;
+          &lt;admin_state&gt;VT&lt;/admin_state&gt;
+          &lt;admin_pcode&gt;40022-5903&lt;/admin_pcode&gt;
+          &lt;admin_country&gt;US&lt;/admin_country&gt;
+          &lt;send_announce&gt;false&lt;/send_announce&gt;
+        &lt;/admin&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-5"></a>
+                <h3>server &gt; get &gt; key</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;key/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;key&gt;
+          &lt;property&gt;
+            &lt;name&gt;plesk_key_id&lt;/name&gt;
+            &lt;value&gt;PLSK.00000001.0000&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;product_version&lt;/name&gt;
+            &lt;value&gt;12.0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_date&lt;/name&gt;
+            &lt;value&gt;2014-12-03&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;license_update_date&lt;/name&gt;
+            &lt;value&gt;2035-01-01&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_slaves&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_cl&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_dom&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_domain_aliases&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_mn&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;lim_wu&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;MLS&lt;/name&gt;
+            &lt;value&gt;1000&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;allowed-locales&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;MPCID&lt;/name&gt;
+            &lt;value&gt;MyPlesk.com&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;noMPC&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;noMngMPC&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_easy&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_dlu&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_vz&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;vmware&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;hyper-v&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;xen&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;kvm&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;hypervisor&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_mssql&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_postgresql&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_tomcat&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_gch&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_shell&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_traffic&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_cl_tmpl&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_notifmgr&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_eventmgr&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_actionmgr&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_dombackup&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_expiration&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_subdomains&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_coldfusion&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_sitebuilder&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_tts&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_drweb&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_drweb_limit&lt;/name&gt;
+            &lt;value&gt;15&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_migration&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_askupdate&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;backward-restriction&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_newsfeeds&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;reseller_email&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;store_id&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;autoinstaller_config&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;update_password&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;demo&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_remote_db&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;keyserver_host&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_hwid&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_qmail_queue&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;key_promo_virtuozzo&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;sitebuilder-sites&lt;/name&gt;
+            &lt;value&gt;100&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;mb_accounts&lt;/name&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;hiding_traffic&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;google-tools&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;applications-catalog-url&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;domain-registration-url&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;domain-management-url&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;cert-purchasing-url&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;mpc-portal-url&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;sitebuilder&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;filesharing&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;concerto&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;concerto-id&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;mobile-server-manager-support&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;outgoing-antispam&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;wordpress-toolkit&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;security-core&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;can-manage-accounts&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;can-manage-subscriptions&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;can-manage-customers&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;can-manage-resellers&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;can-manage-custom-view&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;edition&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;wpb-multi-language-sites-support&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;control-suite&lt;/name&gt;
+            &lt;value&gt;0&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;content&gt;PD94bWwgdmVyc...encoded license content here...&lt;/content&gt;
+        &lt;/key&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-6"></a>
+                <h3>server &gt; get &gt; components</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;components/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;components&gt;
+          &lt;component&gt;
+            &lt;name&gt;awstats&lt;/name&gt;
+            &lt;version&gt;7.3-14050621.parallels&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;bind&lt;/name&gt;
+            &lt;version&gt;9.8.2-0.23.rc1.el6_5.1&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;coldfusion-support&lt;/name&gt;
+            &lt;version&gt;12.0.14-cos6.build120140331.11&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;courier-imap&lt;/name&gt;
+            &lt;version&gt;4.15-cos6.build1200140617.18&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;drweb&lt;/name&gt;
+            &lt;version&gt;6.0.2.1-1211092005pleskel5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;fail2ban&lt;/name&gt;
+            &lt;version&gt;0.8.14-1.el6&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;health-monitor&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140526.11&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;httpd&lt;/name&gt;
+            &lt;version&gt;2.2.15-31.el6.centos&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;mailman&lt;/name&gt;
+            &lt;version&gt;2.1.12-18.el6&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;modsecurity&lt;/name&gt;
+            &lt;version&gt;2.8.0-14061715&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;mod_bw&lt;/name&gt;
+            &lt;version&gt;0.92-14060419&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;mod_perl&lt;/name&gt;
+            &lt;version&gt;2.0.4-11.el6_5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;mod_python&lt;/name&gt;
+            &lt;version&gt;3.3.1-16.el6&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;mysql&lt;/name&gt;
+            &lt;version&gt;5.1.73-3.el6_5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;nginx&lt;/name&gt;
+            &lt;version&gt;1.6.0-1.14051516.centos6&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;perl-Apache-ASP&lt;/name&gt;
+            &lt;version&gt;2.59-0.297781&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;php&lt;/name&gt;
+            &lt;version&gt;5.3.3-27.el6_5.2&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;php-fpm&lt;/name&gt;
+            &lt;version&gt;5.3.3-27.el6_5.2&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;phpmyadmin&lt;/name&gt;
+            &lt;version&gt;4.2.5-cos6.build1200140702.16&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;phppgadmin&lt;/name&gt;
+            &lt;version&gt;5.1-cos6.build1200140423.18&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;postfix&lt;/name&gt;
+            &lt;version&gt;2.8.17-14042514&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;postgresql-server&lt;/name&gt;
+            &lt;version&gt;8.4.20-1.el6_5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;PPSitebuilder&lt;/name&gt;
+            &lt;version&gt;12.0.6-14081212&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-api-rpc&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-autoinstaller&lt;/name&gt;
+            &lt;version&gt;3.16.20-140624.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-backup-manager&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-drweb-configurator&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-horde&lt;/name&gt;
+            &lt;version&gt;5.2.1-cos6.build1200140821.14&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-imp&lt;/name&gt;
+            &lt;version&gt;6.2.1-cos6.build1200140818.13&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-kav8&lt;/name&gt;
+            &lt;version&gt;8.0.3-0.14061710&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-logrotate&lt;/name&gt;
+            &lt;version&gt;3.8.2-cos6.build120140331.11&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-migration-manager&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-mod-fcgid-configurator&lt;/name&gt;
+            &lt;version&gt;2.3.9-14033112&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-proftpd&lt;/name&gt;
+            &lt;version&gt;1.3.5-cos6.build1200140529.18&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-spamassassin&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140606.15&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-tomcat-configurator&lt;/name&gt;
+            &lt;version&gt;12.0.18-cos6.build1200140604.14&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;psa-turba&lt;/name&gt;
+            &lt;version&gt;4.2.1-cos6.build1200140818.13&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;roundcube&lt;/name&gt;
+            &lt;version&gt;1.0.0-cos6.build1200140626.18&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;samba&lt;/name&gt;
+            &lt;version&gt;3.6.9-167.el6_5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;spamassassin&lt;/name&gt;
+            &lt;version&gt;3.3.1-3.el6&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;SSHTerm&lt;/name&gt;
+            &lt;version&gt;0.2.2-10.14033112&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;tomcat&lt;/name&gt;
+            &lt;version&gt;6.0.24-78.el6_5&lt;/version&gt;
+          &lt;/component&gt;
+          &lt;component&gt;
+            &lt;name&gt;webalizer&lt;/name&gt;
+            &lt;version&gt;2.21_02-3.3.el6&lt;/version&gt;
+          &lt;/component&gt;
+        &lt;/components&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-7"></a>
+                <h3>server &gt; get &gt; services_state</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;services_state/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;services_state&gt;
+          &lt;srv&gt;
+            &lt;id&gt;web&lt;/id&gt;
+            &lt;title&gt;Web Server (Apache)&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;smtp&lt;/id&gt;
+            &lt;title&gt;SMTP Server (Postfix)&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;imap-pop3&lt;/id&gt;
+            &lt;title&gt;Dovecot IMAP and POP3 server&lt;/title&gt;
+            &lt;state&gt;none&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;pop3&lt;/id&gt;
+            &lt;title&gt;Courier POP3 server&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;pop3s&lt;/id&gt;
+            &lt;title&gt;Courier POP3 server with SSL/TLS support&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;imap&lt;/id&gt;
+            &lt;title&gt;Courier IMAP server&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;imaps&lt;/id&gt;
+            &lt;title&gt;Courier IMAP server with SSL/TLS support&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;authdaemon&lt;/id&gt;
+            &lt;title&gt;Courier IMAP authentication daemon&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;dns&lt;/id&gt;
+            &lt;title&gt;DNS Server (BIND)&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;tomcat&lt;/id&gt;
+            &lt;title&gt;Tomcat Java&lt;/title&gt;
+            &lt;state&gt;stopped&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;coldfusion&lt;/id&gt;
+            &lt;title&gt;ColdFusion (Not configured)&lt;/title&gt;
+            &lt;state&gt;none&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;postgresql&lt;/id&gt;
+            &lt;title&gt;PostgreSQL&lt;/title&gt;
+            &lt;state&gt;stopped&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;spamassassin&lt;/id&gt;
+            &lt;title&gt;SpamAssassin&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;drweb&lt;/id&gt;
+            &lt;title&gt;Parallels Premium Antivirus&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;kav&lt;/id&gt;
+            &lt;title&gt;Kaspersky Antivirus&lt;/title&gt;
+            &lt;state&gt;stopped&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;milter&lt;/id&gt;
+            &lt;title&gt;Plesk milter (Postfix)&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;nginx&lt;/id&gt;
+            &lt;title&gt;Reverse Proxy Server (nginx)&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;php-fpm&lt;/id&gt;
+            &lt;title&gt;PHP-FPM support for nginx&lt;/title&gt;
+            &lt;state&gt;running&lt;/state&gt;
+          &lt;/srv&gt;
+          &lt;srv&gt;
+            &lt;id&gt;fail2ban&lt;/id&gt;
+            &lt;title&gt;IP Address Banning (Fail2ban)&lt;/title&gt;
+            &lt;state&gt;stopped&lt;/state&gt;
+          &lt;/srv&gt;
+        &lt;/services_state&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-8"></a>
+                <h3>server &gt; get &gt; session_setup</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;session_setup/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;session_setup&gt;
+          &lt;login_timeout&gt;30&lt;/login_timeout&gt;
+        &lt;/session_setup&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-9"></a>
+                <h3>server &gt; get &gt; shells</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;shells/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;shells&gt;
+          &lt;shell&gt;
+            &lt;name&gt;Forbidden&lt;/name&gt;
+            &lt;path&gt;/bin/false&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/sh&lt;/name&gt;
+            &lt;path&gt;/bin/sh&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/bash&lt;/name&gt;
+            &lt;path&gt;/bin/bash&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/sbin/nologin&lt;/name&gt;
+            &lt;path&gt;/sbin/nologin&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/tcsh&lt;/name&gt;
+            &lt;path&gt;/bin/tcsh&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/csh&lt;/name&gt;
+            &lt;path&gt;/bin/csh&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/bash (chrooted)&lt;/name&gt;
+            &lt;path&gt;/usr/local/psa/bin/chrootsh&lt;/path&gt;
+          &lt;/shell&gt;
+          &lt;shell&gt;
+            &lt;name&gt;/bin/rbash&lt;/name&gt;
+            &lt;path&gt;/bin/rbash&lt;/path&gt;
+          &lt;/shell&gt;
+        &lt;/shells&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-10"></a>
+                <h3>server &gt; get &gt; interfaces</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;interfaces/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;interfaces&gt;
+          &lt;interface&gt;venet0&lt;/interface&gt;
+        &lt;/interfaces&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="example-11"></a>
+                <h3>server &gt; get &gt; stat</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;stat/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;stat&gt;
+          &lt;objects&gt;
+            &lt;clients&gt;0&lt;/clients&gt;
+            &lt;domains&gt;0&lt;/domains&gt;
+            &lt;active_domains&gt;0&lt;/active_domains&gt;
+            &lt;mail_boxes&gt;0&lt;/mail_boxes&gt;
+            &lt;mail_redirects&gt;0&lt;/mail_redirects&gt;
+            &lt;mail_groups&gt;0&lt;/mail_groups&gt;
+            &lt;mail_responders&gt;0&lt;/mail_responders&gt;
+            &lt;web_users&gt;0&lt;/web_users&gt;
+            &lt;databases&gt;0&lt;/databases&gt;
+            &lt;database_users&gt;0&lt;/database_users&gt;
+            &lt;problem_clients&gt;0&lt;/problem_clients&gt;
+            &lt;problem_domains&gt;0&lt;/problem_domains&gt;
+          &lt;/objects&gt;
+          &lt;version&gt;
+            &lt;plesk_name&gt;psa&lt;/plesk_name&gt;
+            &lt;plesk_version&gt;12.0.18&lt;/plesk_version&gt;
+            &lt;plesk_os&gt;CentOS&lt;/plesk_os&gt;
+            &lt;plesk_os_version&gt;6&lt;/plesk_os_version&gt;
+            &lt;plesk_build&gt;1200140606.15&lt;/plesk_build&gt;
+            &lt;os_release&gt;2.6.32-042stab092.1&lt;/os_release&gt;
+            &lt;veid&gt;102&lt;/veid&gt;
+          &lt;/version&gt;
+          &lt;other&gt;
+            &lt;cpu&gt;GenuineIntel, Intel(R) Core(TM) i7 CPU        950  @ 3.07GHz&lt;/cpu&gt;
+            &lt;uptime&gt;29940&lt;/uptime&gt;
+            &lt;inside_vz&gt;true&lt;/inside_vz&gt;
+          &lt;/other&gt;
+          &lt;load_avg&gt;
+            &lt;l1&gt;0&lt;/l1&gt;
+            &lt;l5&gt;0&lt;/l5&gt;
+            &lt;l15&gt;0&lt;/l15&gt;
+          &lt;/load_avg&gt;
+          &lt;mem&gt;
+            &lt;total&gt;536870912&lt;/total&gt;
+            &lt;used&gt;512897024&lt;/used&gt;
+            &lt;free&gt;23973888&lt;/free&gt;
+            &lt;shared&gt;0&lt;/shared&gt;
+            &lt;buffer&gt;0&lt;/buffer&gt;
+            &lt;cached&gt;293863424&lt;/cached&gt;
+          &lt;/mem&gt;
+          &lt;swap&gt;
+            &lt;total&gt;536870912&lt;/total&gt;
+            &lt;used&gt;152772608&lt;/used&gt;
+            &lt;free&gt;384098304&lt;/free&gt;
+          &lt;/swap&gt;
+          &lt;diskspace&gt;
+            &lt;device&gt;
+              &lt;name&gt;/dev/vzfs&lt;/name&gt;
+              &lt;total&gt;1442483625984&lt;/total&gt;
+              &lt;used&gt;122841006080&lt;/used&gt;
+              &lt;free&gt;1246366400512&lt;/free&gt;
+            &lt;/device&gt;
+          &lt;/diskspace&gt;
+        &lt;/stat&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                    </div>
+    </body>
+</html>
