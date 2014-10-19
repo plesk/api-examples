@@ -21,3 +21,7 @@ Here you can find useful helpers to execute API-RPC requests.
 To run the example use the following command:
 
 `REMOTE_HOST=your-plesk-host.dom REMOTE_LOGIN=admin REMOTE_PASSWORD=password ./example.py`
+
+## Plain Text Examples
+
+Plain text examples of possible requests and responses: http://plesk.github.io/api-examples/
