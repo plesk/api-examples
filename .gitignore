@@ -11,3 +11,4 @@ vb/*.suo
 objective-c/**/xcuserdata/
 objective-c/**/*.xccheckout
 php/tests/node_modules
+plain/execution.log
