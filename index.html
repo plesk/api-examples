@@ -20,22 +20,156 @@
             <h2>Table of Contents</h2>
 
             <ul>
-                                    <li><a href="#example-1">server &gt; get_protos</a></li>
-                                    <li><a href="#example-2">server &gt; get &gt; gen_info</a></li>
-                                    <li><a href="#example-3">server &gt; get &gt; prefs</a></li>
-                                    <li><a href="#example-4">server &gt; get &gt; admin</a></li>
-                                    <li><a href="#example-5">server &gt; get &gt; key</a></li>
-                                    <li><a href="#example-6">server &gt; get &gt; components</a></li>
-                                    <li><a href="#example-7">server &gt; get &gt; services_state</a></li>
-                                    <li><a href="#example-8">server &gt; get &gt; session_setup</a></li>
-                                    <li><a href="#example-9">server &gt; get &gt; shells</a></li>
-                                    <li><a href="#example-10">server &gt; get &gt; interfaces</a></li>
-                                    <li><a href="#example-11">server &gt; get &gt; stat</a></li>
+                                    <li><a href="#customer-add-gen_info-pname">customer &gt; add &gt; gen_info &gt; pname</a></li>
+                                    <li><a href="#customer-del-filter-id">customer &gt; del &gt; filter &gt; id</a></li>
+                                    <li><a href="#certificate-generate-info-bits">certificate &gt; generate &gt; info &gt; bits</a></li>
+                                    <li><a href="#server-get_protos">server &gt; get_protos</a></li>
+                                    <li><a href="#server-get-gen_info">server &gt; get &gt; gen_info</a></li>
+                                    <li><a href="#server-get-prefs">server &gt; get &gt; prefs</a></li>
+                                    <li><a href="#server-get-admin">server &gt; get &gt; admin</a></li>
+                                    <li><a href="#server-get-key">server &gt; get &gt; key</a></li>
+                                    <li><a href="#server-get-components">server &gt; get &gt; components</a></li>
+                                    <li><a href="#server-get-services_state">server &gt; get &gt; services_state</a></li>
+                                    <li><a href="#server-get-session_setup">server &gt; get &gt; session_setup</a></li>
+                                    <li><a href="#server-get-shells">server &gt; get &gt; shells</a></li>
+                                    <li><a href="#server-get-interfaces">server &gt; get &gt; interfaces</a></li>
+                                    <li><a href="#server-get-stat">server &gt; get &gt; stat</a></li>
+                                    <li><a href="#server-get-site-isolation-config">server &gt; get &gt; site-isolation-config</a></li>
                             </ul>
 
             <h2>Examples</h2>
 
-                            <a name="example-1"></a>
+                            <a name="customer-add-gen_info-pname"></a>
+                <h3>customer &gt; add &gt; gen_info &gt; pname</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;customer&gt;
+    &lt;add&gt;
+      &lt;gen_info&gt;
+        &lt;pname&gt;John Smith&lt;/pname&gt;
+        &lt;login&gt;john-unit-test&lt;/login&gt;
+        &lt;passwd&gt;simple-password&lt;/passwd&gt;
+      &lt;/gen_info&gt;
+    &lt;/add&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;customer&gt;
+    &lt;add&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;id&gt;4&lt;/id&gt;
+        &lt;guid&gt;b9f1aa18-baba-41b5-a6f2-04e457c16165&lt;/guid&gt;
+      &lt;/result&gt;
+    &lt;/add&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="customer-del-filter-id"></a>
+                <h3>customer &gt; del &gt; filter &gt; id</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;customer&gt;
+    &lt;del&gt;
+      &lt;filter&gt;
+        &lt;id&gt;4&lt;/id&gt;
+      &lt;/filter&gt;
+    &lt;/del&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;customer&gt;
+    &lt;del&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;filter-id&gt;4&lt;/filter-id&gt;
+        &lt;id&gt;4&lt;/id&gt;
+      &lt;/result&gt;
+    &lt;/del&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="certificate-generate-info-bits"></a>
+                <h3>certificate &gt; generate &gt; info &gt; bits</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;certificate&gt;
+    &lt;generate&gt;
+      &lt;info&gt;
+        &lt;bits&gt;2048&lt;/bits&gt;
+        &lt;country&gt;RU&lt;/country&gt;
+        &lt;state&gt;NSO&lt;/state&gt;
+        &lt;location&gt;Novosibirsk&lt;/location&gt;
+        &lt;company&gt;Parallels&lt;/company&gt;
+        &lt;email&gt;info@example.com&lt;/email&gt;
+        &lt;name&gt;example.com&lt;/name&gt;
+      &lt;/info&gt;
+    &lt;/generate&gt;
+  &lt;/certificate&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;certificate&gt;
+    &lt;generate&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;csr&gt;-----BEGIN CERTIFICATE REQUEST-----
+MIICwTCCAakCAQAwfDELMAkGA1UEBhMCUlUxDDAKBgNVBAgTA05TTzEUMBIGA1UE
+BxMLTm92b3NpYmlyc2sxEjAQBgNVBAoTCVBhcmFsbGVsczEUMBIGA1UEAxMLZXhh
+bXBsZS5jb20xHzAdBgkqhkiG9w0BCQEWEGluZm9AZXhhbXBsZS5jb20wggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2PfNJiUVFipfiixHvTlI4fqOnK3bu
+vPwtENw8WxRdeWqBDLTzCUehbTkVfotiXsfrwAcsF9uIxGoLIYdZ/1defg82sgHj
+UDe77R+1CQeCLW0uDLuJOTvoAu+BFLx6hsza1xEqcj+au6vGn3r4O7/6jc9J1mFX
+UcJdiOvJSdZxKmQeLa4RMt+cIZK0rCq3zCBKscLE1oUN+nLZ3obNZKJEt8jO7dpN
+4S5/tTJd2CZ649w0c6DCoBw4PXeEOhv1ir5VEFsPza2DpPS66/OpejHp7QNRe1rP
+q4O7ajKYHwIFaUwBfJVyp9pbdai9BBjiLEQMbHmD/yXcDCgllN36woJrAgMBAAGg
+ADANBgkqhkiG9w0BAQUFAAOCAQEAiTQ1MMtuBaxC5NntT+qdpSS7MI8KJYxZrhqW
+Jc6Y5joZ5CdKSgYlXUZwtwe/TnxyVDHx0W/70S5Qe8OY4Pyyvb3eAOz6vKqCWnZl
+OYkVFHCNMi8vu/zHvAYXloilarszkST9YRohV6hVL9laxSPrIxblLJORlvimQDx5
+7BZUyxe11QE/kpHm445EeRjro0YfmhWbdUXVIrlWd8qIE5on6vnvSG5445xBBGNx
+pHOLziofOt5iKT8yx6zN51tISEUPAfM3DZDdpNU0z02TLCTb8TCIuBDdGN52AaxR
+oaSLCs1b+4Sp2XnLhuKZgEyF/d/43oQjPxetLbOs5bpExeqnsg==
+-----END CERTIFICATE REQUEST-----&lt;/csr&gt;
+        &lt;pvt&gt;-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2PfNJiUVFipfi
+ixHvTlI4fqOnK3buvPwtENw8WxRdeWqBDLTzCUehbTkVfotiXsfrwAcsF9uIxGoL
+IYdZ/1defg82sgHjUDe77R+1CQeCLW0uDLuJOTvoAu+BFLx6hsza1xEqcj+au6vG
+n3r4O7/6jc9J1mFXUcJdiOvJSdZxKmQeLa4RMt+cIZK0rCq3zCBKscLE1oUN+nLZ
+3obNZKJEt8jO7dpN4S5/tTJd2CZ649w0c6DCoBw4PXeEOhv1ir5VEFsPza2DpPS6
+6/OpejHp7QNRe1rPq4O7ajKYHwIFaUwBfJVyp9pbdai9BBjiLEQMbHmD/yXcDCgl
+lN36woJrAgMBAAECggEBAJ9NAcgq9OF355KArDm6Bccac+Vh6gGAMxMVpN4hY2je
+BEowGFBFsVabSgXO6vofDbS2084oQJ+JyYRXV6BEwlN378aIzXutGDruaQPvk5+o
+I8LYIGowHHyPbFoyDRsxkApPatLmsVCJcfsaVvx8BjF3GlZZzhbtAfCPCkSWhZu+
+zUIMWu1hxzhVJ9Dylp7AyE4n25TfbwZiTdYzSzdrpTQh+DIWyi2/Gqu3knpGkeHM
+a9T+YIZ9LOSD8gKD1PVvjaocnQBCITxMsTBJjEFUzMar0m4udhnpxJxVb3fbvD1R
+ofsQY+d9qhmJfbiScL6OWUQgSj/hwb9i/O5wHWbCg0ECgYEA8pJP4+o7X0vdzzKw
+QeD4ZueClVTEKxOlxXaxBP4yaAGuamGiHb3Ab8bPtKJxtp+Lu0aYAuFfzTDpTQR4
+iSEPiYqwteJYeq+AA9rx/vfNwVFfL0gRgiF9MIpe/jQBbOIwBpodCWN4napyaD+w
+A1Pf8oW8EQ/T/QajEFV6qG+mqcsCgYEAwFSoLtMrqFN2bxarkXXqmpJFQjbPMQFB
+ffetbnTiQuoQPqiS1lmBYR7/McOr6n/Yf7s4x0deEHMvzBKhahr0jdchblw6F8uh
+tuyuogzIIc5AhfavfYH7OilqWosz3iAFLGA1TMYS1xN/ENf9QWKZF40bsQne9d39
+3U5xKZFY9eECgYAO/X+2Y/k7UGLqtQUzbQWsxk3JkK12xAYQh980ocjXqJLwvAva
+rqk/vxeC4C8KzB1Ee35VXzweYBFq0wXn44UkSM/WzaAOJN5SXqtpyEKM2cx6DYgX
+dJ5Z65MnPmuAIRI6tjdpJx6DD892JcloyzwhrqYKn+HH1ysojT/BPPUdtQKBgEc9
+VEp715jyyVSejhBEIBD/Cv5atOYO9AZHvorCaqikcD31TOZuotiplZcGRmCG2Fd/
+rqlJyxLGx7aMVBOsRldfjzeEm9QCjjTmeEz39Q1oi0fTtu8DPV4uxwEgvKaTL7df
+L37vgzz9MLy5dEpKzjAGCXLLGDXz8zuM+aeO+eehAoGBAJVoZe52cP5Avos3Xs3x
+2fAvcLFRy/QVg0hAAy7ULbSPW5VJqNQ8XZrGY+knl5ev02Cd3s+AhfewIrz6gsYy
+YgcmM0ppXfboFaUAqg0jwjuD2pKKxIZKuEsbbsH72BodY6MOWpHLj8bo0q25iz4e
+kWipR16fQZWyDFRIqqUjFqdE
+-----END PRIVATE KEY-----
+&lt;/pvt&gt;
+      &lt;/result&gt;
+    &lt;/generate&gt;
+  &lt;/certificate&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="server-get_protos"></a>
                 <h3>server &gt; get_protos</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -88,7 +222,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-2"></a>
+                            <a name="server-get-gen_info"></a>
                 <h3>server &gt; get &gt; gen_info</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -107,7 +241,7 @@
         &lt;status&gt;ok&lt;/status&gt;
         &lt;gen_info&gt;
           &lt;server_name&gt;ppu12-0.demo.pp.plesk.ru&lt;/server_name&gt;
-          &lt;server_guid&gt;dfdaf0e7-c007-4930-8e53-4b6435169bf2&lt;/server_guid&gt;
+          &lt;server_guid&gt;305d9684-0d81-444c-a1bd-c43fcccdc8d9&lt;/server_guid&gt;
           &lt;vps-optimized-status&gt;
             &lt;aspect&gt;
               &lt;name&gt;mysql-innodb&lt;/name&gt;
@@ -133,7 +267,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-3"></a>
+                            <a name="server-get-prefs"></a>
                 <h3>server &gt; get &gt; prefs</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -175,7 +309,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-4"></a>
+                            <a name="server-get-admin"></a>
                 <h3>server &gt; get &gt; admin</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -193,15 +327,15 @@
       &lt;result&gt;
         &lt;status&gt;ok&lt;/status&gt;
         &lt;admin&gt;
-          &lt;admin_cname&gt;BeerHermistonandQuigley&lt;/admin_cname&gt;
-          &lt;admin_pname&gt;Moises Ritchie&lt;/admin_pname&gt;
-          &lt;admin_phone&gt;+74(0)9168599912&lt;/admin_phone&gt;
+          &lt;admin_cname&gt;SpinkaWeimannandWisozk&lt;/admin_cname&gt;
+          &lt;admin_pname&gt;Nestor Hettinger&lt;/admin_pname&gt;
+          &lt;admin_phone&gt;(802)223-3180&lt;/admin_phone&gt;
           &lt;admin_fax/&gt;
           &lt;admin_email&gt;autotester@plesk.ru&lt;/admin_email&gt;
-          &lt;admin_address&gt;52635 Stiedemann Avenue&lt;/admin_address&gt;
-          &lt;admin_city&gt;Franeckifurt&lt;/admin_city&gt;
-          &lt;admin_state&gt;VT&lt;/admin_state&gt;
-          &lt;admin_pcode&gt;40022-5903&lt;/admin_pcode&gt;
+          &lt;admin_address&gt;20389 Anastasia Creek&lt;/admin_address&gt;
+          &lt;admin_city&gt;Lake Savanna&lt;/admin_city&gt;
+          &lt;admin_state&gt;FM&lt;/admin_state&gt;
+          &lt;admin_pcode&gt;72573-1468&lt;/admin_pcode&gt;
           &lt;admin_country&gt;US&lt;/admin_country&gt;
           &lt;send_announce&gt;false&lt;/send_announce&gt;
         &lt;/admin&gt;
@@ -210,7 +344,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-5"></a>
+                            <a name="server-get-key"></a>
                 <h3>server &gt; get &gt; key</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -555,7 +689,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-6"></a>
+                            <a name="server-get-components"></a>
                 <h3>server &gt; get &gt; components</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -755,7 +889,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-7"></a>
+                            <a name="server-get-services_state"></a>
                 <h3>server &gt; get &gt; services_state</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -874,7 +1008,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-8"></a>
+                            <a name="server-get-session_setup"></a>
                 <h3>server &gt; get &gt; session_setup</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -899,7 +1033,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-9"></a>
+                            <a name="server-get-shells"></a>
                 <h3>server &gt; get &gt; shells</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -955,7 +1089,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-10"></a>
+                            <a name="server-get-interfaces"></a>
                 <h3>server &gt; get &gt; interfaces</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -980,7 +1114,7 @@
   &lt;/server&gt;
 &lt;/packet&gt;
 </code></pre>
-                            <a name="example-11"></a>
+                            <a name="server-get-stat"></a>
                 <h3>server &gt; get &gt; stat</h3>
                 <p>Request:</p>
                 <pre><code class="xml">&lt;packet&gt;
@@ -1023,36 +1157,140 @@
           &lt;/version&gt;
           &lt;other&gt;
             &lt;cpu&gt;GenuineIntel, Intel(R) Core(TM) i7 CPU        950  @ 3.07GHz&lt;/cpu&gt;
-            &lt;uptime&gt;29940&lt;/uptime&gt;
+            &lt;uptime&gt;17700&lt;/uptime&gt;
             &lt;inside_vz&gt;true&lt;/inside_vz&gt;
           &lt;/other&gt;
           &lt;load_avg&gt;
-            &lt;l1&gt;0&lt;/l1&gt;
-            &lt;l5&gt;0&lt;/l5&gt;
-            &lt;l15&gt;0&lt;/l15&gt;
+            &lt;l1&gt;22&lt;/l1&gt;
+            &lt;l5&gt;5&lt;/l5&gt;
+            &lt;l15&gt;2&lt;/l15&gt;
           &lt;/load_avg&gt;
           &lt;mem&gt;
             &lt;total&gt;536870912&lt;/total&gt;
-            &lt;used&gt;512897024&lt;/used&gt;
-            &lt;free&gt;23973888&lt;/free&gt;
+            &lt;used&gt;473104384&lt;/used&gt;
+            &lt;free&gt;63766528&lt;/free&gt;
             &lt;shared&gt;0&lt;/shared&gt;
             &lt;buffer&gt;0&lt;/buffer&gt;
-            &lt;cached&gt;293863424&lt;/cached&gt;
+            &lt;cached&gt;240394240&lt;/cached&gt;
           &lt;/mem&gt;
           &lt;swap&gt;
             &lt;total&gt;536870912&lt;/total&gt;
-            &lt;used&gt;152772608&lt;/used&gt;
-            &lt;free&gt;384098304&lt;/free&gt;
+            &lt;used&gt;148144128&lt;/used&gt;
+            &lt;free&gt;388726784&lt;/free&gt;
           &lt;/swap&gt;
           &lt;diskspace&gt;
             &lt;device&gt;
               &lt;name&gt;/dev/vzfs&lt;/name&gt;
               &lt;total&gt;1442483625984&lt;/total&gt;
-              &lt;used&gt;122841006080&lt;/used&gt;
-              &lt;free&gt;1246366400512&lt;/free&gt;
+              &lt;used&gt;122824261632&lt;/used&gt;
+              &lt;free&gt;1246383144960&lt;/free&gt;
             &lt;/device&gt;
           &lt;/diskspace&gt;
         &lt;/stat&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="server-get-site-isolation-config"></a>
+                <h3>server &gt; get &gt; site-isolation-config</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;site-isolation-config/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;site-isolation-config&gt;
+          &lt;property&gt;
+            &lt;name&gt;php_safe_mode&lt;/name&gt;
+            &lt;value&gt;on&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;perl&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;python&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;miva&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;coldfusion&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;write_modify&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;iis_app_pool&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;webdeploy&lt;/name&gt;
+            &lt;value&gt;off&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;ssl&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;php&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;cgi&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;fastcgi&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;ssi&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;asp_dot_net&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;asp&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;errdocs&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;webstat&lt;/name&gt;
+            &lt;value&gt;any&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;php_handler_type&lt;/name&gt;
+            &lt;value&gt;fastcgi&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;shell&lt;/name&gt;
+            &lt;value&gt;/usr/local/psa/bin/chrootsh&lt;/value&gt;
+          &lt;/property&gt;
+          &lt;property&gt;
+            &lt;name&gt;iis_app_pool&lt;/name&gt;
+            &lt;value&gt;on&lt;/value&gt;
+          &lt;/property&gt;
+        &lt;/site-isolation-config&gt;
       &lt;/result&gt;
     &lt;/get&gt;
   &lt;/server&gt;
