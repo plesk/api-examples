@@ -91,11 +91,17 @@ $toc = [];
 $index = 1;
 
 foreach ($log as $record) {
+    $title = getRequestTitle($record['request']);
+
+    if (false !== array_search($title, $toc)) {
+        continue;
+    }
+
     $examples[$index] = [
         'request' => $record['request'],
         'response' => $record['response'],
     ];
-    $toc[$index] = getRequestTitle($record['request']);
+    $toc[$index] = $title;
     $index++;
 }
 
