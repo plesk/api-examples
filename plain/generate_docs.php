@@ -87,22 +87,20 @@ $indexHtmlFile = $argv[1];
 
 $log = json_decode(file_get_contents('execution.log'), true);
 $examples = [];
-$toc = [];
-$index = 1;
 
 foreach ($log as $record) {
     $title = getRequestTitle($record['request']);
+    $name = str_replace(' > ', '-', $title);
 
-    if (false !== array_search($title, $toc)) {
+    if (array_key_exists($name, $examples)) {
         continue;
     }
 
-    $examples[$index] = [
+    $examples[$name] = [
+        'title' => $title,
         'request' => $record['request'],
         'response' => $record['response'],
     ];
-    $toc[$index] = $title;
-    $index++;
 }
 
 $title = 'Plesk XML-RPC Examples';

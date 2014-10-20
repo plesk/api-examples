@@ -20,16 +20,16 @@
             <h2>Table of Contents</h2>
 
             <ul>
-                <?php foreach ($toc as $index => $tocItem): ?>
-                    <li><a href="#example-<?php echo $index; ?>"><?php echo htmlspecialchars($tocItem); ?></a></li>
+                <?php foreach ($examples as $name => $example): ?>
+                    <li><a href="#<?php echo $name; ?>"><?php echo htmlspecialchars($example['title']); ?></a></li>
                 <?php endforeach; ?>
             </ul>
 
             <h2>Examples</h2>
 
-            <?php foreach ($examples as $index => $example): ?>
-                <a name="example-<?php echo $index; ?>"></a>
-                <h3><?php echo htmlspecialchars($toc[$index]); ?></h3>
+            <?php foreach ($examples as $name => $example): ?>
+                <a name="<?php echo $name; ?>"></a>
+                <h3><?php echo htmlspecialchars($example['title']); ?></h3>
                 <p>Request:</p>
                 <pre><code class="xml"><?php echo htmlspecialchars(prepareXmlContent($example['request'])); ?></code></pre>
                 <p>Response:</p>
