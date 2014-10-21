@@ -22,6 +22,10 @@
             <ul>
                                     <li><a href="#customer-add-gen_info-pname">customer &gt; add &gt; gen_info &gt; pname</a></li>
                                     <li><a href="#customer-del-filter-id">customer &gt; del &gt; filter &gt; id</a></li>
+                                    <li><a href="#customer-get-filter-id">customer &gt; get &gt; filter &gt; id</a></li>
+                                    <li><a href="#reseller-add-gen-info-pname">reseller &gt; add &gt; gen-info &gt; pname</a></li>
+                                    <li><a href="#reseller-del-filter-id">reseller &gt; del &gt; filter &gt; id</a></li>
+                                    <li><a href="#reseller-get-filter-id">reseller &gt; get &gt; filter &gt; id</a></li>
                                     <li><a href="#certificate-generate-info-bits">certificate &gt; generate &gt; info &gt; bits</a></li>
                                     <li><a href="#server-get_protos">server &gt; get_protos</a></li>
                                     <li><a href="#server-get-gen_info">server &gt; get &gt; gen_info</a></li>
@@ -35,6 +39,7 @@
                                     <li><a href="#server-get-interfaces">server &gt; get &gt; interfaces</a></li>
                                     <li><a href="#server-get-stat">server &gt; get &gt; stat</a></li>
                                     <li><a href="#server-get-site-isolation-config">server &gt; get &gt; site-isolation-config</a></li>
+                                    <li><a href="#server-get-updates">server &gt; get &gt; updates</a></li>
                             </ul>
 
             <h2>Examples</h2>
@@ -60,8 +65,8 @@
     &lt;add&gt;
       &lt;result&gt;
         &lt;status&gt;ok&lt;/status&gt;
-        &lt;id&gt;4&lt;/id&gt;
-        &lt;guid&gt;b9f1aa18-baba-41b5-a6f2-04e457c16165&lt;/guid&gt;
+        &lt;id&gt;42&lt;/id&gt;
+        &lt;guid&gt;2c54b044-c449-4f8d-908b-31f027d84287&lt;/guid&gt;
       &lt;/result&gt;
     &lt;/add&gt;
   &lt;/customer&gt;
@@ -74,7 +79,7 @@
   &lt;customer&gt;
     &lt;del&gt;
       &lt;filter&gt;
-        &lt;id&gt;4&lt;/id&gt;
+        &lt;id&gt;42&lt;/id&gt;
       &lt;/filter&gt;
     &lt;/del&gt;
   &lt;/customer&gt;
@@ -86,11 +91,172 @@
     &lt;del&gt;
       &lt;result&gt;
         &lt;status&gt;ok&lt;/status&gt;
-        &lt;filter-id&gt;4&lt;/filter-id&gt;
-        &lt;id&gt;4&lt;/id&gt;
+        &lt;filter-id&gt;42&lt;/filter-id&gt;
+        &lt;id&gt;42&lt;/id&gt;
       &lt;/result&gt;
     &lt;/del&gt;
   &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="customer-get-filter-id"></a>
+                <h3>customer &gt; get &gt; filter &gt; id</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;customer&gt;
+    &lt;get&gt;
+      &lt;filter&gt;
+        &lt;id&gt;44&lt;/id&gt;
+      &lt;/filter&gt;
+      &lt;dataset&gt;
+        &lt;gen_info/&gt;
+      &lt;/dataset&gt;
+    &lt;/get&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;customer&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;filter-id&gt;44&lt;/filter-id&gt;
+        &lt;id&gt;44&lt;/id&gt;
+        &lt;data&gt;
+          &lt;gen_info&gt;
+            &lt;cr_date&gt;2014-10-21&lt;/cr_date&gt;
+            &lt;cname/&gt;
+            &lt;pname&gt;John Smith&lt;/pname&gt;
+            &lt;login&gt;john-unit-test&lt;/login&gt;
+            &lt;status&gt;0&lt;/status&gt;
+            &lt;phone/&gt;
+            &lt;fax/&gt;
+            &lt;email/&gt;
+            &lt;address/&gt;
+            &lt;city/&gt;
+            &lt;state/&gt;
+            &lt;pcode/&gt;
+            &lt;country/&gt;
+            &lt;locale&gt;en-US&lt;/locale&gt;
+            &lt;guid&gt;faf63cb2-649a-4ae4-9421-5ee4a0f778ef&lt;/guid&gt;
+            &lt;owner-login&gt;admin&lt;/owner-login&gt;
+            &lt;vendor-guid&gt;434d668a-2629-4028-8664-6224a3f18e15&lt;/vendor-guid&gt;
+            &lt;external-id/&gt;
+            &lt;description/&gt;
+            &lt;password&gt;$5$gLsoVR3o6Ac5aFxM$qJPzsvJtPlnSrWm1nyQiwnx/11sy8lpSSHlAYC5e6vB&lt;/password&gt;
+            &lt;password_type&gt;crypt&lt;/password_type&gt;
+          &lt;/gen_info&gt;
+        &lt;/data&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/customer&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="reseller-add-gen-info-pname"></a>
+                <h3>reseller &gt; add &gt; gen-info &gt; pname</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;reseller&gt;
+    &lt;add&gt;
+      &lt;gen-info&gt;
+        &lt;pname&gt;John Reseller&lt;/pname&gt;
+        &lt;login&gt;reseller-unit-test&lt;/login&gt;
+        &lt;passwd&gt;simple-password&lt;/passwd&gt;
+      &lt;/gen-info&gt;
+    &lt;/add&gt;
+  &lt;/reseller&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;reseller&gt;
+    &lt;add&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;id&gt;45&lt;/id&gt;
+        &lt;guid&gt;8dc942ba-3547-48ed-bd6a-4b9ed8208238&lt;/guid&gt;
+      &lt;/result&gt;
+    &lt;/add&gt;
+  &lt;/reseller&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="reseller-del-filter-id"></a>
+                <h3>reseller &gt; del &gt; filter &gt; id</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;reseller&gt;
+    &lt;del&gt;
+      &lt;filter&gt;
+        &lt;id&gt;45&lt;/id&gt;
+      &lt;/filter&gt;
+    &lt;/del&gt;
+  &lt;/reseller&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;reseller&gt;
+    &lt;del&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;filter-id&gt;45&lt;/filter-id&gt;
+        &lt;id&gt;45&lt;/id&gt;
+      &lt;/result&gt;
+    &lt;/del&gt;
+  &lt;/reseller&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="reseller-get-filter-id"></a>
+                <h3>reseller &gt; get &gt; filter &gt; id</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;reseller&gt;
+    &lt;get&gt;
+      &lt;filter&gt;
+        &lt;id&gt;47&lt;/id&gt;
+      &lt;/filter&gt;
+      &lt;dataset&gt;
+        &lt;gen-info/&gt;
+      &lt;/dataset&gt;
+    &lt;/get&gt;
+  &lt;/reseller&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;reseller&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;filter-id&gt;47&lt;/filter-id&gt;
+        &lt;id&gt;47&lt;/id&gt;
+        &lt;data&gt;
+          &lt;gen-info&gt;
+            &lt;cr-date&gt;2014-10-21&lt;/cr-date&gt;
+            &lt;cname/&gt;
+            &lt;pname&gt;John Reseller&lt;/pname&gt;
+            &lt;login&gt;reseller-unit-test&lt;/login&gt;
+            &lt;status&gt;0&lt;/status&gt;
+            &lt;phone/&gt;
+            &lt;fax/&gt;
+            &lt;email/&gt;
+            &lt;address/&gt;
+            &lt;city/&gt;
+            &lt;state/&gt;
+            &lt;pcode/&gt;
+            &lt;country/&gt;
+            &lt;locale&gt;en-US&lt;/locale&gt;
+            &lt;guid&gt;4abc09dc-69a5-4aba-a2c9-98d2f5e79363&lt;/guid&gt;
+            &lt;external-id/&gt;
+            &lt;description/&gt;
+            &lt;power-user&gt;false&lt;/power-user&gt;
+            &lt;password&gt;$5$NonisF6fIH675cqQ$kRGeW2sdCGPKk8QZjtBg5CtMkAyXma72mXzftfJkv0A&lt;/password&gt;
+            &lt;password-type&gt;crypt&lt;/password-type&gt;
+          &lt;/gen-info&gt;
+        &lt;/data&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/reseller&gt;
 &lt;/packet&gt;
 </code></pre>
                             <a name="certificate-generate-info-bits"></a>
@@ -122,46 +288,46 @@
 MIICwTCCAakCAQAwfDELMAkGA1UEBhMCUlUxDDAKBgNVBAgTA05TTzEUMBIGA1UE
 BxMLTm92b3NpYmlyc2sxEjAQBgNVBAoTCVBhcmFsbGVsczEUMBIGA1UEAxMLZXhh
 bXBsZS5jb20xHzAdBgkqhkiG9w0BCQEWEGluZm9AZXhhbXBsZS5jb20wggEiMA0G
-CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2PfNJiUVFipfiixHvTlI4fqOnK3bu
-vPwtENw8WxRdeWqBDLTzCUehbTkVfotiXsfrwAcsF9uIxGoLIYdZ/1defg82sgHj
-UDe77R+1CQeCLW0uDLuJOTvoAu+BFLx6hsza1xEqcj+au6vGn3r4O7/6jc9J1mFX
-UcJdiOvJSdZxKmQeLa4RMt+cIZK0rCq3zCBKscLE1oUN+nLZ3obNZKJEt8jO7dpN
-4S5/tTJd2CZ649w0c6DCoBw4PXeEOhv1ir5VEFsPza2DpPS66/OpejHp7QNRe1rP
-q4O7ajKYHwIFaUwBfJVyp9pbdai9BBjiLEQMbHmD/yXcDCgllN36woJrAgMBAAGg
-ADANBgkqhkiG9w0BAQUFAAOCAQEAiTQ1MMtuBaxC5NntT+qdpSS7MI8KJYxZrhqW
-Jc6Y5joZ5CdKSgYlXUZwtwe/TnxyVDHx0W/70S5Qe8OY4Pyyvb3eAOz6vKqCWnZl
-OYkVFHCNMi8vu/zHvAYXloilarszkST9YRohV6hVL9laxSPrIxblLJORlvimQDx5
-7BZUyxe11QE/kpHm445EeRjro0YfmhWbdUXVIrlWd8qIE5on6vnvSG5445xBBGNx
-pHOLziofOt5iKT8yx6zN51tISEUPAfM3DZDdpNU0z02TLCTb8TCIuBDdGN52AaxR
-oaSLCs1b+4Sp2XnLhuKZgEyF/d/43oQjPxetLbOs5bpExeqnsg==
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZx3Vpohy3iUMms2NRQXUJv3DHDBRR
+Lmc8kvrbrCgywwggNdMTB7cQ538TnmRR3MPExtCd0qhpzOf03mDHPmB5WZ6xsmjm
+rP1Eazya1HEpArvadbPUyTAg9MFccYMsS+VRPt4DL/8mEw3DJlnG3VgKKLEvV0I0
+URed25Pvp4i4jFgUQPc5rjYy2LF8XcH8bZekC9PuXmwfCt2CFtr8xt3vYk83gOaJ
+Bvd6bWjBcbV0weaxNSlAVPJDh1j60TaWCQh3n2nQMTINA1ft9ou1JDyXP94VVBZR
+Bqh1U4aPERMS679xQBYmekluK3H3gX4e4WDy7nSMRGKZQ9AG9DtxalrBAgMBAAGg
+ADANBgkqhkiG9w0BAQUFAAOCAQEAa5MpUqQfJsqCg10nyoiiOWPUBjqyEMrmjfwX
++1P7tNXrAPgV9F8GLLALKoMMpUdC1/F1jmo2fgVidcE6thAlqXcv9qmD6K+Rg4Bk
+xLOCuxaorB3oldW4zd+UZ/LkLeeNW32Jn2TjfOe6WLQrxg8pLRtZrYCh5t2O4jy7
+u3DXxE07sDbB3EN9iZ6S4D/vW7pwIdQ2M9nKYTwfvPSLxE0dk5K1mHIsbZ1T+lwz
+mnJgweBD7qeanW1Z13YHBekhsH0cgeO2wWrtKeEqlcv8OSBdADvNeqG2anvXXBKN
+aOMHN2Zj0yfbU832m6rC3/TJoo/KCgqRjmw2mWi26LIUYO3HYA==
 -----END CERTIFICATE REQUEST-----&lt;/csr&gt;
         &lt;pvt&gt;-----BEGIN PRIVATE KEY-----
-MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2PfNJiUVFipfi
-ixHvTlI4fqOnK3buvPwtENw8WxRdeWqBDLTzCUehbTkVfotiXsfrwAcsF9uIxGoL
-IYdZ/1defg82sgHjUDe77R+1CQeCLW0uDLuJOTvoAu+BFLx6hsza1xEqcj+au6vG
-n3r4O7/6jc9J1mFXUcJdiOvJSdZxKmQeLa4RMt+cIZK0rCq3zCBKscLE1oUN+nLZ
-3obNZKJEt8jO7dpN4S5/tTJd2CZ649w0c6DCoBw4PXeEOhv1ir5VEFsPza2DpPS6
-6/OpejHp7QNRe1rPq4O7ajKYHwIFaUwBfJVyp9pbdai9BBjiLEQMbHmD/yXcDCgl
-lN36woJrAgMBAAECggEBAJ9NAcgq9OF355KArDm6Bccac+Vh6gGAMxMVpN4hY2je
-BEowGFBFsVabSgXO6vofDbS2084oQJ+JyYRXV6BEwlN378aIzXutGDruaQPvk5+o
-I8LYIGowHHyPbFoyDRsxkApPatLmsVCJcfsaVvx8BjF3GlZZzhbtAfCPCkSWhZu+
-zUIMWu1hxzhVJ9Dylp7AyE4n25TfbwZiTdYzSzdrpTQh+DIWyi2/Gqu3knpGkeHM
-a9T+YIZ9LOSD8gKD1PVvjaocnQBCITxMsTBJjEFUzMar0m4udhnpxJxVb3fbvD1R
-ofsQY+d9qhmJfbiScL6OWUQgSj/hwb9i/O5wHWbCg0ECgYEA8pJP4+o7X0vdzzKw
-QeD4ZueClVTEKxOlxXaxBP4yaAGuamGiHb3Ab8bPtKJxtp+Lu0aYAuFfzTDpTQR4
-iSEPiYqwteJYeq+AA9rx/vfNwVFfL0gRgiF9MIpe/jQBbOIwBpodCWN4napyaD+w
-A1Pf8oW8EQ/T/QajEFV6qG+mqcsCgYEAwFSoLtMrqFN2bxarkXXqmpJFQjbPMQFB
-ffetbnTiQuoQPqiS1lmBYR7/McOr6n/Yf7s4x0deEHMvzBKhahr0jdchblw6F8uh
-tuyuogzIIc5AhfavfYH7OilqWosz3iAFLGA1TMYS1xN/ENf9QWKZF40bsQne9d39
-3U5xKZFY9eECgYAO/X+2Y/k7UGLqtQUzbQWsxk3JkK12xAYQh980ocjXqJLwvAva
-rqk/vxeC4C8KzB1Ee35VXzweYBFq0wXn44UkSM/WzaAOJN5SXqtpyEKM2cx6DYgX
-dJ5Z65MnPmuAIRI6tjdpJx6DD892JcloyzwhrqYKn+HH1ysojT/BPPUdtQKBgEc9
-VEp715jyyVSejhBEIBD/Cv5atOYO9AZHvorCaqikcD31TOZuotiplZcGRmCG2Fd/
-rqlJyxLGx7aMVBOsRldfjzeEm9QCjjTmeEz39Q1oi0fTtu8DPV4uxwEgvKaTL7df
-L37vgzz9MLy5dEpKzjAGCXLLGDXz8zuM+aeO+eehAoGBAJVoZe52cP5Avos3Xs3x
-2fAvcLFRy/QVg0hAAy7ULbSPW5VJqNQ8XZrGY+knl5ev02Cd3s+AhfewIrz6gsYy
-YgcmM0ppXfboFaUAqg0jwjuD2pKKxIZKuEsbbsH72BodY6MOWpHLj8bo0q25iz4e
-kWipR16fQZWyDFRIqqUjFqdE
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZx3Vpohy3iUMm
+s2NRQXUJv3DHDBRRLmc8kvrbrCgywwggNdMTB7cQ538TnmRR3MPExtCd0qhpzOf0
+3mDHPmB5WZ6xsmjmrP1Eazya1HEpArvadbPUyTAg9MFccYMsS+VRPt4DL/8mEw3D
+JlnG3VgKKLEvV0I0URed25Pvp4i4jFgUQPc5rjYy2LF8XcH8bZekC9PuXmwfCt2C
+Ftr8xt3vYk83gOaJBvd6bWjBcbV0weaxNSlAVPJDh1j60TaWCQh3n2nQMTINA1ft
+9ou1JDyXP94VVBZRBqh1U4aPERMS679xQBYmekluK3H3gX4e4WDy7nSMRGKZQ9AG
+9DtxalrBAgMBAAECggEAK8RlOWSGJvCkGTwGIsdn8RyTWr13u9T6lHbpiYpwzbra
+gDaxA+sSBIixxkyX1sfqZDqcpIs4o4K1v0WN550GoHy9YvL7GBj+EWkH1goJ7/cH
+r+Dl0kbYsFbgIWcCuL1MCeb7kWJtAcbkhirH8ip7zhbdfSkpOgBuIaCGe6yM0qGq
+xM97mi58HjnLQlJW0ld9dyvP/7U0i+S2cz3d5DsZr7k6ULnJPLUzevg86NNlLOd6
+1mj0BEIok2+H+saj8bbzscJlqxse+Rr55QwXKjIgQnbRQRW1uhoGHDuuE6MU/YMA
+EVEMlIf3icrHUUn8mPZ5J9pZ2uGuLJ1n8yXbCHehDQKBgQD/JR6UVLZ8YCpfC7a5
+wMKZ6xnlFbYnL2JvRxOXA4ds1HQ7LHrjinma3o+cxkhcW3K1kvnZheMWxL5FkmlD
+hGfMGspybLWOvAdafMAOsCj0nvvhe5N4MgSFOUOx0yd5ZzxdFBkYtfJ3n/xQxgSB
+z2KG0/+cOHeyGxDU0vsknc5aFwKBgQDagkjEAaKRcHMquo7yh08tGJtW5mUhU4ms
+1jpExMTgP1EqYG0Vvbj0WO6codgfTtM64J8hNlmVkfKpgtPs64Q/cHESuecBIfLa
+0ztrz/3be4ASI2dFZYKILvwsrb13h0LRv8WEam+tipPKNokssHaqulujOM+kiKAW
+bEjkertw5wKBgQDZyVCJ4qmGDvv79164ve4ePgzze43pcsv+GliBbfS6E7tHC1e2
+RGw6osFJXANGOpT2ood8golt1PBpKGmLxUhoc3HdLCfpt1w7hALYRsweylpMhRRC
+48byBQhgkNHAEjv3Y4Fsk1pte/V+6RfNyjzaw7kLGzQopmu+jnzrK3yJbwKBgFDo
+yx7g6BxoggyBVesSFUxCf0qXNz023JTGIn9SSQAsEdbaK6pQPQslXv1apFc7bdWw
+VNwMbvGGQE9qJSTmNGr1LLldYt81feJvMuKB+qLpwQt2VogIxWO92hyFHNIEoMZf
+9zhH3SBqXr0SooqMsPQY21O99o0bFgQXhoors/pjAoGBAIpAJJk1NR0PPaBzozDS
+mM1NiVJdjLKuYNZT371u6BY1EpSCUyFVnwYS9xcmMH3HGf0k/ClwqecRR/v254pI
+vMEcEEmNtI5cl8AVppzC5dOnTOPxtxgQeFICC4D9zcL7sXRg4eNmzCRy9im0IG98
+sKxZqs+i+nhYjBU0b+aM8L0e
 -----END PRIVATE KEY-----
 &lt;/pvt&gt;
       &lt;/result&gt;
@@ -241,7 +407,7 @@ kWipR16fQZWyDFRIqqUjFqdE
         &lt;status&gt;ok&lt;/status&gt;
         &lt;gen_info&gt;
           &lt;server_name&gt;ppu12-0.demo.pp.plesk.ru&lt;/server_name&gt;
-          &lt;server_guid&gt;305d9684-0d81-444c-a1bd-c43fcccdc8d9&lt;/server_guid&gt;
+          &lt;server_guid&gt;434d668a-2629-4028-8664-6224a3f18e15&lt;/server_guid&gt;
           &lt;vps-optimized-status&gt;
             &lt;aspect&gt;
               &lt;name&gt;mysql-innodb&lt;/name&gt;
@@ -327,15 +493,15 @@ kWipR16fQZWyDFRIqqUjFqdE
       &lt;result&gt;
         &lt;status&gt;ok&lt;/status&gt;
         &lt;admin&gt;
-          &lt;admin_cname&gt;SpinkaWeimannandWisozk&lt;/admin_cname&gt;
-          &lt;admin_pname&gt;Nestor Hettinger&lt;/admin_pname&gt;
-          &lt;admin_phone&gt;(802)223-3180&lt;/admin_phone&gt;
+          &lt;admin_cname&gt;HodkiewiczJacobiandPrice&lt;/admin_cname&gt;
+          &lt;admin_pname&gt;Adriana Schoen&lt;/admin_pname&gt;
+          &lt;admin_phone&gt;07188575841&lt;/admin_phone&gt;
           &lt;admin_fax/&gt;
           &lt;admin_email&gt;autotester@plesk.ru&lt;/admin_email&gt;
-          &lt;admin_address&gt;20389 Anastasia Creek&lt;/admin_address&gt;
-          &lt;admin_city&gt;Lake Savanna&lt;/admin_city&gt;
-          &lt;admin_state&gt;FM&lt;/admin_state&gt;
-          &lt;admin_pcode&gt;72573-1468&lt;/admin_pcode&gt;
+          &lt;admin_address&gt;01533 Douglas Highway&lt;/admin_address&gt;
+          &lt;admin_city&gt;West Dianaport&lt;/admin_city&gt;
+          &lt;admin_state&gt;MO&lt;/admin_state&gt;
+          &lt;admin_pcode&gt;14632&lt;/admin_pcode&gt;
           &lt;admin_country&gt;US&lt;/admin_country&gt;
           &lt;send_announce&gt;false&lt;/send_announce&gt;
         &lt;/admin&gt;
@@ -1133,16 +1299,16 @@ kWipR16fQZWyDFRIqqUjFqdE
         &lt;status&gt;ok&lt;/status&gt;
         &lt;stat&gt;
           &lt;objects&gt;
-            &lt;clients&gt;0&lt;/clients&gt;
-            &lt;domains&gt;0&lt;/domains&gt;
-            &lt;active_domains&gt;0&lt;/active_domains&gt;
-            &lt;mail_boxes&gt;0&lt;/mail_boxes&gt;
+            &lt;clients&gt;8&lt;/clients&gt;
+            &lt;domains&gt;9&lt;/domains&gt;
+            &lt;active_domains&gt;9&lt;/active_domains&gt;
+            &lt;mail_boxes&gt;2&lt;/mail_boxes&gt;
             &lt;mail_redirects&gt;0&lt;/mail_redirects&gt;
             &lt;mail_groups&gt;0&lt;/mail_groups&gt;
             &lt;mail_responders&gt;0&lt;/mail_responders&gt;
             &lt;web_users&gt;0&lt;/web_users&gt;
-            &lt;databases&gt;0&lt;/databases&gt;
-            &lt;database_users&gt;0&lt;/database_users&gt;
+            &lt;databases&gt;1&lt;/databases&gt;
+            &lt;database_users&gt;1&lt;/database_users&gt;
             &lt;problem_clients&gt;0&lt;/problem_clients&gt;
             &lt;problem_domains&gt;0&lt;/problem_domains&gt;
           &lt;/objects&gt;
@@ -1157,33 +1323,33 @@ kWipR16fQZWyDFRIqqUjFqdE
           &lt;/version&gt;
           &lt;other&gt;
             &lt;cpu&gt;GenuineIntel, Intel(R) Core(TM) i7 CPU        950  @ 3.07GHz&lt;/cpu&gt;
-            &lt;uptime&gt;17700&lt;/uptime&gt;
+            &lt;uptime&gt;64800&lt;/uptime&gt;
             &lt;inside_vz&gt;true&lt;/inside_vz&gt;
           &lt;/other&gt;
           &lt;load_avg&gt;
-            &lt;l1&gt;22&lt;/l1&gt;
-            &lt;l5&gt;5&lt;/l5&gt;
-            &lt;l15&gt;2&lt;/l15&gt;
+            &lt;l1&gt;59&lt;/l1&gt;
+            &lt;l5&gt;21&lt;/l5&gt;
+            &lt;l15&gt;13&lt;/l15&gt;
           &lt;/load_avg&gt;
           &lt;mem&gt;
             &lt;total&gt;536870912&lt;/total&gt;
-            &lt;used&gt;473104384&lt;/used&gt;
-            &lt;free&gt;63766528&lt;/free&gt;
+            &lt;used&gt;413421568&lt;/used&gt;
+            &lt;free&gt;123449344&lt;/free&gt;
             &lt;shared&gt;0&lt;/shared&gt;
             &lt;buffer&gt;0&lt;/buffer&gt;
-            &lt;cached&gt;240394240&lt;/cached&gt;
+            &lt;cached&gt;246259712&lt;/cached&gt;
           &lt;/mem&gt;
           &lt;swap&gt;
             &lt;total&gt;536870912&lt;/total&gt;
-            &lt;used&gt;148144128&lt;/used&gt;
-            &lt;free&gt;388726784&lt;/free&gt;
+            &lt;used&gt;196513792&lt;/used&gt;
+            &lt;free&gt;340357120&lt;/free&gt;
           &lt;/swap&gt;
           &lt;diskspace&gt;
             &lt;device&gt;
               &lt;name&gt;/dev/vzfs&lt;/name&gt;
               &lt;total&gt;1442483625984&lt;/total&gt;
-              &lt;used&gt;122824261632&lt;/used&gt;
-              &lt;free&gt;1246383144960&lt;/free&gt;
+              &lt;used&gt;128864542720&lt;/used&gt;
+              &lt;free&gt;1240342863872&lt;/free&gt;
             &lt;/device&gt;
           &lt;/diskspace&gt;
         &lt;/stat&gt;
@@ -1291,6 +1457,36 @@ kWipR16fQZWyDFRIqqUjFqdE
             &lt;value&gt;on&lt;/value&gt;
           &lt;/property&gt;
         &lt;/site-isolation-config&gt;
+      &lt;/result&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                            <a name="server-get-updates"></a>
+                <h3>server &gt; get &gt; updates</h3>
+                <p>Request:</p>
+                <pre><code class="xml">&lt;packet&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;updates/&gt;
+    &lt;/get&gt;
+  &lt;/server&gt;
+&lt;/packet&gt;
+</code></pre>
+                <p>Response:</p>
+                <pre><code class="xml">&lt;packet version=&quot;1.6.6.0&quot;&gt;
+  &lt;server&gt;
+    &lt;get&gt;
+      &lt;result&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+        &lt;updates&gt;
+          &lt;available_update/&gt;
+          &lt;available_update_type/&gt;
+          &lt;security_updates/&gt;
+          &lt;last_installed_update&gt;19&lt;/last_installed_update&gt;
+          &lt;install_updates_automatically&gt;false&lt;/install_updates_automatically&gt;
+          &lt;install_third_party_updates&gt;false&lt;/install_third_party_updates&gt;
+        &lt;/updates&gt;
       &lt;/result&gt;
     &lt;/get&gt;
   &lt;/server&gt;
