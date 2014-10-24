@@ -1,4 +1,6 @@
-﻿Imports System
+﻿' Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+
+Imports System
 Imports System.Net
 Imports System.Text
 Imports System.IO

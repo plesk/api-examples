@@ -1,3 +1,5 @@
+// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+
 import java.net.*;
 import java.io.*;
 import javax.net.ssl.*;

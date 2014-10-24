@@ -1,3 +1,5 @@
+// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+
 #ifndef PLESK_API_CLIENT_H
 #define PLESK_API_CLIENT_H
 

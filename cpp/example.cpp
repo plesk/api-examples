@@ -1,3 +1,5 @@
+// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+
 #include <iostream>
 #include "plesk_api_client.h"
 
