@@ -90,7 +90,8 @@ $log = json_decode(file_get_contents('execution.log'), true);
 $examples = [];
 
 foreach ($log as $record) {
-    if (preg_match('/ApiClientTest\.php$/', $record['trace'][0]['file'])) {
+    $trace = join(';', array_column($record['trace'], 'file'));
+    if (preg_match('/ApiClientTest\.php/', $trace)) {
         continue;
     }
 
