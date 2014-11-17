@@ -24,16 +24,16 @@
             <h2>Table of Contents</h2>
 
             <ul>
-                <?php foreach ($menu as $section => $items): ?>
-                    <li>
-                        <?php echo htmlspecialchars($section); ?>
-                        <ul>
-                            <?php foreach ($items as $item): ?>
-                                <li><a href="#<?php echo $item['name']; ?>"><?php echo htmlspecialchars($item['subTitle']); ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
-                <?php endforeach; ?>
+<?php foreach ($menu as $section => $items): ?>
+                <li>
+                    <?php echo htmlspecialchars($section) . "\n"; ?>
+                    <ul>
+<?php foreach ($items as $item): ?>
+                        <li><a href="#<?php echo $item['name']; ?>"><?php echo htmlspecialchars($item['subTitle']); ?></a></li>
+<?php endforeach; ?>
+                    </ul>
+                </li>
+<?php endforeach; ?>
             </ul>
 
             <h2>Examples</h2>
