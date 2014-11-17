@@ -76,7 +76,18 @@ function getNodeTitle($node)
 function getRequestTitle($request)
 {
     $requestXml = simplexml_load_string($request);
-    return getNodeTitle($requestXml);
+    $nodeTitle = getNodeTitle($requestXml);
+
+    $parts = explode(' > ', $nodeTitle);
+    $partsLimit = 2;
+
+    if (preg_match('/^server > /', $nodeTitle)) {
+        $partsLimit = 3;
+    }
+
+    $nodeTitle = join(' > ', array_slice($parts, 0, $partsLimit));
+
+    return $nodeTitle;
 }
 
 if ($argc < 2) {
@@ -88,6 +99,7 @@ $indexHtmlFile = $argv[1];
 
 $log = json_decode(file_get_contents('execution.log'), true);
 $examples = [];
+$menu = [];
 
 foreach ($log as $record) {
     $trace = join(';', array_column($record['trace'], 'file'));
@@ -100,6 +112,19 @@ foreach ($log as $record) {
 
     if (array_key_exists($name, $examples)) {
         continue;
+    }
+
+    $titleParts = explode(' > ', $title);
+    $operator = $titleParts[0];
+    $menuItem = [
+        'subTitle' => join(' > ', array_slice($titleParts, 1)),
+        'name' => $name,
+    ];
+
+    if (!isset($menu[$operator])) {
+        $menu[$operator] = [$menuItem];
+    } else {
+        $menu[$operator][] = $menuItem;
     }
 
     $examples[$name] = [
