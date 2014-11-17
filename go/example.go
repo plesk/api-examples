@@ -24,8 +24,8 @@ func main() {
 	cli := NewPleskApiClient(host)
 	cli.SetCredentials(login, password)
 
-	// make work with self-signed sertificate:
-	// cli.InsecureSkipVerify = true
+	// remove the line below in case of valid SSL certificate for 8443 port
+	cli.InsecureSkipVerify = true
 
 	responseData, err := cli.Request(request)
 	if err != nil {
