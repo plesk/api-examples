@@ -8,6 +8,7 @@ Here you can find useful helpers to execute API-RPC requests.
   * Bash
   * C++
   * C#
+  * Go
   * Java
   * Node.js
   * Objective-C
