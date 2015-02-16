@@ -26,3 +26,11 @@ To run the example use the following command:
 ## Plain Text Examples
 
 Plain text examples of possible requests and responses: http://plesk.github.io/api-examples/
+
+## Documentation
+
+Official XML API documentation: http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/
+
+Interactive schemas of XML-RPC packets structure:
+* http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/agent_input.svg 
+* http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/agent_output.svg
