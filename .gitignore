@@ -1,4 +1,5 @@
 python/*.pyc
+python3/__pycache__/
 cpp/*.o
 cpp/example
 java/*.class
