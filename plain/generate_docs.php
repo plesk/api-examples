@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+// Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
 
 /**
  * @param string $content
