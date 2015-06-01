@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
 
 . plesk_api_client.sh
