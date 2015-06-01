@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 # Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
 
-. plesk_api_client.sh
+. ./plesk_api_client.sh
 
 request='
 <packet>
