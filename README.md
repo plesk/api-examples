@@ -29,8 +29,5 @@ Plain text examples of possible requests and responses: http://plesk.github.io/a
 
 ## Documentation
 
-Official XML API documentation: http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/
-
-Interactive schemas of XML-RPC packets structure:
-* http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/agent_input.svg 
-* http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/agent_output.svg
+* [Official XML API documentation](http://download1.parallels.com/Plesk/Doc/en-US/online/plesk-api-rpc/)
+* [Interactive schemas of XML-RPC packets structure](http://plesk.github.io/api-schemas/)
