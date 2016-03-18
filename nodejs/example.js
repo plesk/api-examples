@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
+// Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.
 
 var pleskApi = require('./plesk_api_client.js');
 

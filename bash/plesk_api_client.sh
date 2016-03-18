@@ -1,4 +1,4 @@
-# Copyright 1999-2015. Parallels IP Holdings GmbH. All Rights Reserved.
+# Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.
 
 function plesk_api() {
     local request="$1"
