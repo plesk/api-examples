@@ -1,59 +1,60 @@
 // Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.
+/* jshint -W069 */
+"use strict";
 
-var http = require('http');
-var https = require('https');
+const http = require('http');
+const https = require('https');
 
-function Client(host, port, protocol) {
-  this._host = host;
-  this._port = port || 8443;
-  this._protocol = protocol || 'https';
-}
+class Client {
 
-Client.prototype.setCredentials = function(login, password) {
-  this._login = login;
-  this._password = password;
-}
+    constructor(host, port, protocol) {
+        this._host = host;
+        this._port = port || 8443;
+        this._protocol = protocol || 'https';
+    }
 
-Client.prototype.setSecretKey = function(secretKey) {
-  this._secretKey = secretKey;
-}
+    setCredentials(login, password) {
+        this._login = login;
+        this._password = password;
+    }
 
-Client.prototype.request = function(body, callback) {
-  var headers = {
-    'Content-type': 'text/xml',
-    'HTTP_PRETTY_PRINT': 'TRUE'
-  }
+    setSecretKey(secretKey) {
+        this._secretKey = secretKey;
+    }
 
-  if (this._secretKey) {
-    headers['KEY'] = this._secretKey;
-  } else {
-    headers['HTTP_AUTH_LOGIN'] = this._login;
-    headers['HTTP_AUTH_PASSWD'] = this._password;
-  }
+    request(body, callback) {
+        let headers = {
+            'Content-type': 'text/xml',
+            'HTTP_PRETTY_PRINT': 'TRUE'
+        };
 
-  var options = {
-    host: this._host,
-    port: this._port,
-    path: '/enterprise/control/agent.php',
-    method: 'POST',
-    headers: headers
-  }
+        if (this._secretKey) {
+            headers['KEY'] = this._secretKey;
+        } else {
+            headers['HTTP_AUTH_LOGIN'] = this._login;
+            headers['HTTP_AUTH_PASSWD'] = this._password;
+        }
 
-  var handler = function(response) {
-    var result = '';
-    response.on('data', function (chunk) {
-      result += chunk;
-    });
+        let options = {
+            host: this._host,
+            port: this._port,
+            path: '/enterprise/control/agent.php',
+            method: 'POST',
+            headers: headers
+        };
 
-    response.on('end', function () {
-      callback(result);
-    });
-  }
+        let handler = (response) => {
+            let result = '';
+            response.on('data', (chunk) => result += chunk);
+            response.on('end', () => callback(result));
+        };
 
-  var client = 'https' == this._protocol ? https : http;
-  var request = client.request(options, handler);
-  request.write(body);
-  request.end();
+        let client = 'https' == this._protocol ? https : http;
+        let request = client.request(options, handler);
+        request.write(body);
+        request.end();
+    }
+
 }
 
 exports.Client = Client;
