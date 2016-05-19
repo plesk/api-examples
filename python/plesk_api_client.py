@@ -1,14 +1,16 @@
 # Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.
 
 import httplib
+import ssl
 
 class PleskApiClient:
 
-    def __init__(self, host, port = 8443, protocol = 'https'):
+    def __init__(self, host, port = 8443, protocol = 'https', ssl_unverified = False):
         self.host = host
         self.port = port
         self.protocol = protocol
         self.secret_key = None
+        self.ssl_unverified = ssl_unverified
 
     def set_credentials(self, login, password):
         self.login = login
@@ -29,7 +31,10 @@ class PleskApiClient:
             headers["HTTP_AUTH_PASSWD"] = self.password
 
         if 'https' == self.protocol:
-            conn = httplib.HTTPSConnection(self.host, self.port)
+            if self.ssl_unverified == True:
+                conn = httplib.HTTPSConnection(self.host, self.port, context=ssl._create_unverified_context())
+            else:
+                conn = httplib.HTTPSConnection(self.host, self.port)
         else:
             conn = httplib.HTTPConnection(self.host, self.port)
 
