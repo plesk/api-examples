@@ -100,6 +100,7 @@ $indexHtmlFile = $argv[1];
 $log = json_decode(file_get_contents('execution.log'), true);
 $examples = [];
 $menu = [];
+$contentHashes = [];
 
 foreach ($log as $record) {
     $trace = join(';', array_column($record['trace'], 'file'));
@@ -107,14 +108,33 @@ foreach ($log as $record) {
         continue;
     }
 
-    $title = getRequestTitle($record['request']);
-    $name = str_replace(' > ', '-', $title);
+    $origTitle = $title = getRequestTitle($record['request']);
+    $origName = $name = str_replace(' > ', '-', $title);
 
-    if (array_key_exists($name, $examples)) {
-        continue;
+    $index = 2;
+    while (array_key_exists($name, $examples)) {
+        $title = $origTitle . " ($index)";
+        $name = $origName . '-' . $index++;
     }
 
-    $titleParts = explode(' > ', $title);
+    $contentHash = md5(preg_replace('/>([^<]+?)</', '><', $record['request']));
+    if (array_key_exists($contentHash, $contentHashes)) {
+        continue;
+    } else {
+        $contentHashes[$contentHash] = true;
+    }
+
+    $examples[$name] = [
+        'title' => $title,
+        'request' => $record['request'],
+        'response' => $record['response'],
+    ];
+}
+
+ksort($examples);
+
+foreach ($examples as $name => $example) {
+    $titleParts = explode(' > ', $example['title']);
     $operator = $titleParts[0];
     $menuItem = [
         'subTitle' => join(' > ', array_slice($titleParts, 1)),
@@ -126,12 +146,6 @@ foreach ($log as $record) {
     } else {
         $menu[$operator][] = $menuItem;
     }
-
-    $examples[$name] = [
-        'title' => $title,
-        'request' => $record['request'],
-        'response' => $record['response'],
-    ];
 }
 
 $title = 'Plesk XML-RPC Examples';
